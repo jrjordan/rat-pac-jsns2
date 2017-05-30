@@ -1,0 +1,36 @@
+/glg4debug/glg4param omit_muon_processes  0.0
+/glg4debug/glg4param omit_hadronic_processes  0.0
+
+/rat/db/set DETECTOR experiment "jsns2"
+/rat/db/set DETECTOR geo_file "jsns2/jsns2.geo"
+#/tracking/storeTrajectory 1
+#/PhysicsList/setOpWLS bnl
+
+/run/initialize
+
+/process/activate Cerenkov
+
+#/vis/open OGLIQt
+#/vis/drawVolume
+
+# BEGIN EVENT LOOP
+#/rat/proc simpledaq
+#/rat/proc prune
+#/rat/procset prune "mc.track:opticalphoton"
+/rat/proc count
+/rat/procset update 1
+
+# Use IO.default_output_filename
+/rat/proclast outroot
+#END EVENT LOOP
+
+/glg4scint/setQF 1.0
+
+#/generator/add combo gun:point
+/generator/add combo gun:fill
+/generator/vtx/set e+ 0 0 0 10.0
+#/generator/vtx/set proton 0 0 0 61.5
+/generator/pos/set 0 0 0
+
+#/run/beamOn 10000
+/run/beamOn 100
