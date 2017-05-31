@@ -3,34 +3,28 @@
 
 /rat/db/set DETECTOR experiment "jsns2"
 /rat/db/set DETECTOR geo_file "jsns2/jsns2.geo"
+
+#Turn this on if you want to store the tracks
+#NOTE: this makes the files very large!
 #/tracking/storeTrajectory 1
-#/PhysicsList/setOpWLS bnl
 
 /run/initialize
 
+#Make sure Cerenkov light is included
 /process/activate Cerenkov
 
-#/vis/open OGLIQt
-#/vis/drawVolume
-
 # BEGIN EVENT LOOP
-#/rat/proc simpledaq
-#/rat/proc prune
-#/rat/procset prune "mc.track:opticalphoton"
 /rat/proc count
 /rat/procset update 1
 
-# Use IO.default_output_filename
+# Use IO.default_output_filename; Make output format ROOT
 /rat/proclast outroot
+
 #END EVENT LOOP
 
-/glg4scint/setQF 1.0
-
-#/generator/add combo gun:point
-/generator/add combo gun:fill
+#Generate positrons with 10 MeV at the center of the detector
+/generator/add combo gun:point
 /generator/vtx/set e+ 0 0 0 10.0
-#/generator/vtx/set proton 0 0 0 61.5
 /generator/pos/set 0 0 0
 
-#/run/beamOn 10000
 /run/beamOn 100

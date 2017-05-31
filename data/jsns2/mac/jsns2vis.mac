@@ -29,19 +29,7 @@
 
 /vis/ogl/export
 
-#/tracking/storeTrajectory 1
 
 # BEGIN EVENT LOOP
 
-#/generator/add combo gun:point
-#/generator/vtx/set geantino 0 0 0 50.0
-#/generator/pos/set 0 0 0
-#/vis/viewer/flush
-
 #END EVENT LOOP
-
-#/run/beamOn 100
-
-
-
-

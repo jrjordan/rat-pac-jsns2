@@ -16,13 +16,13 @@ CFLAGS += $(ROOT_INCLUDES) $(RAT_INCLUDES) $(LOCAL_INC)
 LDFLAGS += `root-config --ldflags` 
 LDLIBS = $(RAT_LIBS) $(ROOT_LIBS) -lstdc++
 
-all: analyze_data
+all: simpleAnalysis
 
-analyze_data.o: analyze_data.cc
+simpleAnalysis.o: simpleAnalysis.cc
 	$(CC) $(CFLAGS) -c -o $@ $^
 
-analyze_data: analyze_data.o
-	$(CC) $(LDFLAGS) -o $@ analyze_data.o $(LDLIBS)
+simpleAnalysis: simpleAnalysis.o
+	$(CC) $(LDFLAGS) -o $@ simpleAnalysis.o $(LDLIBS)
 
 clean: 
-	rm *.o analyze_data 
+	rm *.o simpleAnalysis 
