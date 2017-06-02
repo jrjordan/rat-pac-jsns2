@@ -17,7 +17,7 @@ outfile.write("""
 tankRadius = 1630.0 #in mm
 tankHeight = 2560.0 #in mm
 PMTRadius = 101.0 #in mm
-PMTOffset = 100.0 #in mm; distance between PMT center and tank
+PMTOffset = 250.0 #in mm; distance between PMT center and tank
 
 #PMT Position Lists
 xPosList = "x: ["
