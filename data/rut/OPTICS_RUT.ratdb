@@ -1,0 +1,253 @@
+{
+name: "OPTICS",
+index: "scintCocktailLAB",
+valid_begin: [0, 0],
+valid_end: [0, 0], 
+
+LIGHT_YIELD: 1000.0,
+LIGHT_YIELDneutron: 1000.0,
+
+ABSLENGTH_option: "wavelength",
+ABSLENGTH_value1: [350d, 360d, 370d, 380d, 390d, 400d, 410d, 420d, 430d, 800d],
+ABSLENGTH_value2: [1.0d-1, 2.0d-1, 2.5d-1, 3.0d-1, 1.0d, 7.0d, 2.0d2, 2.0d3, 4.0d3, 8.0d3],
+
+REEMISSION_PROB_option: "wavelength",
+REEMISSION_PROB_value1: [355d, 365d, 375d, 385d, 390d, 395d, 400d, 405d, 410d, 415d, 420d, 425d, 430d, 450d, 800d],
+REEMISSION_PROB_value2: [.92d, .9d, .85d, .92d, .92d, .85d, .8d, .65d, .7d, .6d, .45d, .25d, .05d, 0.0d, 0.0d],
+
+SCINTWAVEFORM_value1: [-4.6d, -18d, -156d],
+SCINTWAVEFORM_value2: [.71d, .22d, .07d],
+
+SCINTILLATION_option: "dy_dwavelength",
+SCINTILLATION_value1: [360d, 365d, 370d, 380d, 390d, 400d, 405d, 410d, 415d, 420d, 425d, 430d, 435d, 440d, 445d, 450d, 455d, 460d, 470d, 480d, 490d, 500d, 510d, 520d, 530d, 540d, 800d, ],
+SCINTILLATION_value2: [0.0d, 0.0d, 0.0d, 0.53d, 2.64d, 13.19d, 13.98d, 13.19d, 11.87d, 14.51d, 17.15d, 15.83d, 13.19d, 10.55d, 9.23d, 8.44d, 8.18d, 7.92d, 5.28d, 3.43d, 2.64d, 1.32d, 0.79d, 0.53d, 0.26d, 0.0d, 0.0d, ],
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [300d, 350d, 400d, 450d, 500d, 550d, 600d, 650d, 700d, 750d, 800d, ],
+RINDEX_value2: [1.54d, 1.52d, 1.5d, 1.5d, 1.49d, 1.48d, 1.48d, 1.48d, 1.48d, 1.48d, 1.47d, ],
+
+PROPERTY_LIST: ["LIGHT_YIELD", "ABSLENGTH", "REEMISSION_PROB", "SCINTWAVEFORM", "SCINTILLATION", "RINDEX"]
+}
+
+{
+name: "OPTICS",
+index: "simpleScint",
+valid_begin: [0, 0],
+valid_end: [0, 0], 
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [300d, 800d],
+RINDEX_value2: [1.5d, 1.5d],
+
+PROPERTY_LIST: ["RINDEX"]
+}
+
+{
+name: "OPTICS",
+index: "scintWithAttenuation",
+valid_begin: [0, 0],
+valid_end: [0, 0], 
+
+ABSLENGTH_option: "wavelength",
+ABSLENGTH_value1: [300d, 800d],
+ABSLENGTH_value2: [1.0d3, 1.0d3],
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [300d, 800d],
+RINDEX_value2: [1.5d, 1.5d],
+
+PROPERTY_LIST: ["RINDEX", "ABSLENGTH"]
+}
+{
+name: "OPTICS",
+index: "scintWithScattering",
+valid_begin: [0, 0],
+valid_end: [0, 0], 
+
+ABSLENGTH_option: "wavelength",
+ABSLENGTH_value1: [300d, 800d],
+ABSLENGTH_value2: [1.0d3, 1.0d3],
+
+OPSCATFRAC_option: "wavelength",
+OPSCATFRAC_value1: [300d, 800d],
+OPSCATFRAC_value2: [0.5d, 0.5d],
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [300d, 800d],
+RINDEX_value2: [1.5d, 1.5d],
+
+PROPERTY_LIST: ["RINDEX", "OPSCATFRAC", "ABSLENGTH"]
+}
+
+{
+name: "OPTICS",
+index: "scintWithAbsorption",
+valid_begin: [0, 0],
+valid_end: [0, 0], 
+
+ABSLENGTH_option: "wavelength",
+ABSLENGTH_value1: [300d, 800d],
+ABSLENGTH_value2: [1.0d3, 1.0d3],
+
+REEMISSION_PROB_option: "wavelength",
+REEMISSION_PROB_value1: [300d, 800d],
+REEMISSION_PROB_value2: [0.5d, 0.5d],
+
+SCINTWAVEFORM_value1: [-5.0d],
+SCINTWAVEFORM_value2: [1.0d],
+
+SCINTILLATION_option: "dy_dwavelength",
+SCINTILLATION_value1: [300d, 499d, 500d, 501d, 800d],
+SCINTILLATION_value2: [0.0d, 0.0d, 1.0d, 0.0, 0.0d],
+
+SCINTILLATION_WLS_option: "dy_dwavelength",
+SCINTILLATION_WLS_value1: [300d, 499d, 500d, 501d, 800d],
+SCINTILLATION_WLS_value2: [0.0d, 0.0d, 1.0d, 0.0, 0.0d],
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [300d, 800d],
+RINDEX_value2: [1.5d, 1.5d],
+
+PROPERTY_LIST: ["RINDEX", "ABSLENGTH", "REEMISSION_PROB", "SCINTWAVEFORM", "SCINTILLATION", "SCINTILLATION_WLS"]
+}
+
+{
+name: "OPTICS",
+index: "scintWithWLS",
+valid_begin: [0, 0],
+valid_end: [0, 0], 
+
+LIGHT_YIELD: 1000.0,
+
+ABSLENGTH_option: "wavelength",
+ABSLENGTH_value1: [300d, 550d, 551d, 800d],
+ABSLENGTH_value2: [.5d3, .5d3 1.0d9, 1.0d9],
+
+REEMISSION_PROB_option: "wavelength",
+REEMISSION_PROB_value1: [300d, 800d],
+REEMISSION_PROB_value2: [1.0d,1.0d],
+
+SCINTWAVEFORM_value1: [-5.0d, -50.0d],
+SCINTWAVEFORM_value2: [0.8d, 0.2d],
+
+SCINTILLATION_option: "dy_dwavelength",
+SCINTILLATION_value1: [300d, 499d, 500d, 501d, 800d],
+SCINTILLATION_value2: [0.0d, 0.0d, 1.0d, 0.0, 0.0d],
+
+SCINTILLATION_WLS_option: "dy_dwavelength",
+SCINTILLATION_WLS_value1: [300d, 599d, 600d, 601d, 800d],
+SCINTILLATION_WLS_value2: [0.0d, 0.0d, 1.0d, 0.0, 0.0d],
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [300d, 800d],
+RINDEX_value2: [1.5d, 1.5d],
+
+PROPERTY_LIST: ["LIGHT_YIELD", "RINDEX", "ABSLENGTH", "REEMISSION_PROB", "SCINTWAVEFORM", "SCINTILLATION", "SCINTILLATION_WLS"]
+}
+
+{
+name: "OPTICS",
+index: "scintCocktailTaka",
+valid_begin: [0, 0],
+valid_end: [0, 0], 
+
+LIGHT_YIELD: 4000.0,
+
+ABSLENGTH_option: "wavelength",
+ABSLENGTH_value1: [350d, 360d, 370d, 380d, 390d, 400d, 410d, 420d, 430d, 800d],
+ABSLENGTH_value2: [1.0d, 2.0d, 2.5d, 3.0d, 1.0d1, 7.0d1, 2.0d3, 2.0d4, 4.0d4, 8.0d4],
+
+REEMISSION_PROB_option: "wavelength",
+REEMISSION_PROB_value1: [200d, 800d],
+REEMISSION_PROB_value2: [0.0d, 0.0d],
+
+//REEMISSION_PROB_value1: [355d, 365d, 375d, 385d, 390d, 395d, 400d, 405d, 410d, 415d, 420d, 425d, 430d, 450d, 800d],
+//REEMISSION_PROB_value2: [.92d, .9d, .85d, .92d, .92d, .85d, .8d, .65d, .7d, .6d, .45d, .25d, .05d, 0.0d, 0.0d],
+
+//SCINTWAVEFORM_value1: [0.0d, 4.0d, 8.0d, 12.0d, 16.0d, 20.0d, 24.0d, 28.0d, 32.0d, 36.0d, 40.0d, 44.0d, 48.0d, 52.0d, 56.0d, 60.0d, 64.0d, 68.0d, 72.0d, 76.0d, 80.0d, 84.0d, 88.0d, 92.0d, 96.0d, 100.0d, 104.0d, 108.0d, 112.0d, 116.0d, 120.0d, 124.0d, 128.0d, 132.0d, 136.0d, 140.0d, 144.0d, 148.0d, 152.0d],
+//SCINTWAVEFORM_value2: [3.0d, 20.0d, 99.0d, 113.0d, 87.0d, 62.0d, 64.0d, 35.0d, 45.0d, 28.0d, 27.0d, 32.0d, 17.0d, 21.0d, 17.0d, 12.0d, 13.0d, 15.0d, 10.0d, 7.0d, 5.0d, 11.0d, 7.0d, 1.0d, 3.0d, 4.0d, 2.0d, 2.0d, 2.0d, 1.0d, 0.0d, 3.0d, 1.0d, 1.0d, 2.0d, 1.0d, 1.0d, 0.0d, 1.0d], 
+
+SCINTWAVEFORM_value1: [-2.48d, -23.79d],
+SCINTWAVEFORM_value2: [.135d, .865d],
+
+SCINTILLATION_option: "dy_dwavelength",
+SCINTILLATION_value1: [360d, 365d, 370d, 380d, 390d, 400d, 405d, 410d, 415d, 420d, 425d, 430d, 435d, 440d, 445d, 450d, 455d, 460d, 470d, 480d, 490d, 500d, 510d, 520d, 530d, 540d, 800d, ],
+SCINTILLATION_value2: [0.0d, 0.0d, 0.0d, 1.06d, 5.28d, 26.39d, 27.97d, 26.39d, 23.75d, 29.02d, 34.3d, 31.66d, 26.39d, 21.11d, 18.47d, 16.89d, 16.36d, 15.83d, 10.55d, 6.86d, 5.28d, 2.64d, 1.58d, 1.06d, 0.53d, 0.0d, 0.0d, ],
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [300d, 350d, 400d, 450d, 500d, 550d, 600d, 650d, 700d, 750d, 800d, ],
+RINDEX_value2: [1.54d, 1.52d, 1.5d, 1.5d, 1.49d, 1.48d, 1.48d, 1.48d, 1.48d, 1.48d, 1.47d, ],
+
+PROPERTY_LIST: ["LIGHT_YIELD", "ABSLENGTH", "REEMISSION_PROB", "SCINTWAVEFORM", "SCINTILLATION", "RINDEX"]
+}
+
+{
+//Changed reflectivity to 1 to make it a perfect photon detector
+//Not totally sure why this works
+
+name: "OPTICS",
+index: "stainless_steel",
+valid_begin : [0, 0],
+valid_end : [0, 0],
+surface: 1,
+finish: "ground",
+model: "glisur",
+type: "dielectric_metal",
+polish: 0.1,
+REFLECTIVITY_option: "wavelength",
+REFLECTIVITY_value1: [60d,   200d,  300d,  400d,   600d,  800d,  ],
+//REFLECTIVITY_value2: [0.35d, 0.35d, 0.45d, 0.55d,  0.65d, 0.67d, ],
+REFLECTIVITY_value2: [1.0d, 1.0d, 1.0d, 1.0d,  1.0d, 1.0d, ],
+ABSLENGTH_option: "wavelength",
+ABSLENGTH_value1: [60d,  800d, ],
+ABSLENGTH_value2: [0.00001d, 0.00001d, ],
+PROPERTY_LIST: ["REFLECTIVITY", "ABSLENGTH", ]
+}
+
+{
+name: "OPTICS",
+index: "blackNylon",
+valid_begin : [0, 0],
+valid_end : [0, 0],
+surface: 1,
+finish: "ground",
+model: "glisur",
+type: "dielectric_metal",
+polish: 0.01,
+// arbitrarily extended properties from 200 down to 60 nm
+RINDEX_option: "wavelength",
+RINDEX_value1: [60d, 200d, 300d, 400d, 500d, 600d, 700d, 800d, ],
+RINDEX_value2: [1.6863d, 1.6863d, 1.5824d, 1.5537d, 1.5419d, 1.5357d, 1.5321d, 1.5299d, ],
+ABSLENGTH_option: "wavelength",
+ABSLENGTH_value1: [60d, 200d, 300d, 330d, 500d, 600d, 770d, 800d, ],
+ABSLENGTH_value2: [0.1d-3, 0.1d-3, 0.1d-3, 1.0d3, 2.0d3, 1.0d3, 0.5d3, 0.1d-3, ],
+REFLECTIVITY_option: "wavelength",
+REFLECTIVITY_value1: [60d, 800d],
+REFLECTIVITY_value2: [1d-3, 1d-3],
+PROPERTY_LIST: ["RINDEX", "ABSLENGTH", "REFLECTIVITY"]
+}
+
+{
+name: "OPTICS",
+index: "RUTPhotocathode",
+valid_begin : [0, 0],
+valid_end : [0, 0],
+photocathode: 1,
+
+
+EFFICIENCY_option: "wavelength",
+EFFICIENCY_value1: [1.0, 10000.0, ],
+EFFICIENCY_value2: [1., 1., ],
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [60.0, 800.0, ],
+RINDEX_value2: [1.5, 1.5, ],
+
+KINDEX_option: "wavelength",
+KINDEX_value1: [60.0, 800.0, ],
+KINDEX_value2: [1.0, 1.0, ],
+
+THICKNESS_value1: [188.0, 0.0, ],
+THICKNESS_value2: [26e-6, 26e-6, ],
+PROPERTY_LIST: ["EFFICIENCY", "RINDEX", "KINDEX", "THICKNESS", ]
+}

@@ -1,0 +1,33 @@
+/glg4debug/glg4param omit_muon_processes  1.0
+/glg4debug/glg4param omit_hadronic_processes  1.0
+
+/rat/db/set DETECTOR experiment "rut"
+/rat/db/set DETECTOR geo_file "rut/cylinder.geo"
+
+/run/initialize
+
+/PMTOpticalModel/luxlevel 0
+
+# BEGIN EVENT LOOP
+
+#/rat/proc simpledaq
+
+/rat/proc count
+/rat/procset update 100
+
+# Use IO.default_output_filename
+/rat/proclast outroot
+
+# END EVENT LOOP
+
+/glg4scint/setQF 1.0
+
+#/generator/add combo pbomb:point
+#/generator/pos/set 80 0 1220
+#/generator/vtx/set 10000 400
+
+/generator/add combo gun:point
+/generator/vtx/set opticalphoton 0 0 -1 .0000031
+/generator/pos/set 0 0 753.116
+
+/run/beamOn 100000

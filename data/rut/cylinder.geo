@@ -1,0 +1,57 @@
+
+{
+name: "GEO",
+index: "world",
+valid_begin: [0,0],
+valid_end: [0,0],
+mother: "",
+type: "tube",
+r_max: 130.0,
+size_z: 1300.0,
+position: [0.0, 0.0, 0.0],
+material: "simpleScint",
+color: [1.0, 0.0, 0.0, 0.0],
+drawstyle: "surface",
+}
+{
+name: "GEO",
+index: "scint",
+valid_begin: [0,0],
+valid_end: [0,0],
+mother: "world",
+type: "tube",
+r_max: 125.,
+size_z: 1250.0,
+position: [0.0, 0.0, 0.0],
+material: "simpleScint",
+color: [1.0, 0.0, 0.0, 0.0],
+drawstyle: "surface",
+}
+
+{
+name: "GEO",
+index: "blackSheet",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+mother: "border",
+type: "border",
+volume1: "scint",
+volume2: "world",
+surface: "blackNylon",
+reverse: 1,
+}
+{
+name: "GEO",
+index: "pmt",
+enable: 1,
+valid_begin: [0, 0],
+valid_end: [0, 0],
+mother: "scint",
+type: "pmtarray",
+pmt_model: "RUTCustomPMT",
+pmt_detector_type: "idpmt",
+sensitive_detector: "/mydet/pmt/inner",
+efficiency_correction: 1.000,
+pos_table: "PMTINFO_CYLINDER",
+orientation: "manual",
+}
