@@ -1,4 +1,6 @@
 from math import sin, cos, pi
+#import matplotlib as mpl
+#import matplotlib.pyplot as plt
 
 outfile = open('PMTINFO.ratdb', 'w')
 
@@ -64,14 +66,30 @@ numPMTsInnerRing = 6
 #Separation between top and bottom rings in the radial coordinate
 ringSeparation = (tankRadius - PMTRadius)/float(numRings)
 
+#Keep a list of the upper and lower PMT x and y positions to
+#make sure they do not intersect the acrylic feet
+xList = []
+yList = []
+
 for ring in range(1, numRings+1):
     ringRadius = ring*ringSeparation
     numPMTs = ring*numPMTsInnerRing
     phiSeparation = 2*pi/float(numPMTs)
     for ringPMT in range(0, numPMTs):
-        x = ringRadius*cos(ringPMT*phiSeparation)
-        y = ringRadius*sin(ringPMT*phiSeparation)
-        z = tankHeight/2.0 + PMTOffset
+        #PMTs in the second ring need to be offset by phiSeparation/2
+        #to avoid the acrylic support feet that wil be under the acrylic tank
+        if (ring == 2):
+            x = ringRadius*cos((ringPMT+0.5)*phiSeparation)
+            y = ringRadius*sin((ringPMT+0.5)*phiSeparation)
+            z = tankHeight/2.0 + PMTOffset
+        else:
+            x = ringRadius*cos(ringPMT*phiSeparation)
+            y = ringRadius*sin(ringPMT*phiSeparation)
+            z = tankHeight/2.0 + PMTOffset
+
+        xList.append(x)
+        yList.append(y)
+
         xPosList += ' %.4f'%x + ',' + ' %.4f'%x + ',' 
         yPosList += ' %.4f'%y + ',' + ' %.4f'%y + ','
         zPosList += ' %.4f'%z + ',' + ' %.4f'%(-z) + ','
@@ -88,6 +106,9 @@ xDirList = xDirList[:-1] + "],\n"
 yDirList = yDirList[:-1] + "],\n"
 zDirList = zDirList[:-1] + "],\n"
 typeList = typeList[:-1] + "]\n"
+
+#plt.plot(xList, yList, 'ro')
+#plt.show()
 
 #Now write all the positions to the file
 outfile.write(xPosList + yPosList + zPosList + xDirList + yDirList + zDirList + typeList + "}")

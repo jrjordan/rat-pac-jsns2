@@ -1,4 +1,4 @@
-// --------------- Liquid organic scintillator experiments ------------------
+// --------------- Liquid scintillator components ------------------
 
 {
 name: "MATERIAL",
@@ -116,7 +116,7 @@ materials: ["LAB", "PPO", "bisMSB"],
 matprop: [.996552d, .003431d, .000017d]
 }
 
-//Calculte exact component proportions for this dilute scintillator later
+//Current scintillator using SNO+ measurements
 
 {
 name: "MATERIAL",
@@ -129,6 +129,34 @@ nmaterials: 3,
 materials: ["LAB", "PPO", "bisMSB"],
 matprop: [.996552d, .003431d, .000017d]
 }
+
+{
+name: "MATERIAL",
+index: "Gd",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+density: 7.9d,
+nelements: 0,
+nmaterials: 1,
+materials: ["G4_Gd"],
+matprop: [1d]
+}
+
+//Scintillator with Gd
+
+{
+name: "MATERIAL",
+index: "scintLABPPOBisMSBGd",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+density: 0.870d,
+nelements: 0,
+nmaterials: 4,
+materials: ["LAB", "PPO", "bisMSB", "Gd"],
+matprop: [.995555448d, .003427569d, .000016983d, .001]
+}
+
+//Absorptive material for optical separator
 
 {
 name: "MATERIAL",

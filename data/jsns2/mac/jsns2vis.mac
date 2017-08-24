@@ -5,7 +5,7 @@
 /run/initialize
 
 #initialize the visualizer
-/vis/open OGLIX
+/vis/open OGLSQt
 /vis/viewer/set/autoRefresh true
 /vis/scene/create
 /vis/scene/add/volume
@@ -18,18 +18,13 @@
 /vis/viewer/zoom 1.5
 /vis/viewer/set/upVector 0 0 1
 
-/vis/ogl/set/exportFormat pdf
-/vis/ogl/export
+#/vis/ogl/set/exportFormat pdf
+#/vis/ogl/export
 
-/vis/viewer/set/viewpointVector 0 0 -1
-/vis/viewer/zoom 1.00
-/vis/viewer/set/upVector 0 1 0
-/vis/viewer/update
-/vis/viewer/flush
+#/vis/viewer/set/viewpointVector 0 0 -1
+#/vis/viewer/zoom 1.00
+#/vis/viewer/set/upVector 0 1 0
+#/vis/viewer/update
+#/vis/viewer/flush
 
-/vis/ogl/export
-
-
-# BEGIN EVENT LOOP
-
-#END EVENT LOOP
+#/vis/ogl/export

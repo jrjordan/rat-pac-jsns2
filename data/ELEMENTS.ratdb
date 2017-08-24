@@ -11,6 +11,17 @@ a: 4.00260,
 
 {
 name: "ELEMENT",
+index: "Mercury",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+
+SYMBOL: "Hg",
+z: 80,
+a: 200.592,
+}
+
+{
+name: "ELEMENT",
 index: "Deuterium",
 valid_begin: [0, 0],
 valid_end: [0, 0],
