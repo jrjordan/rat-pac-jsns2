@@ -110,6 +110,7 @@ int main( int nargs, char** argv ) {
       ievent++;
       continue;
     }
+    //else std::cout << "Number of Particles: " << mc->GetMCParticleCount() << std::endl;
 
     // true vertex of primary particle
     positionV[0] = mc->GetMCParticle(0)->GetPosition().X()/10.0; //change to cm
@@ -241,6 +242,7 @@ int main( int nargs, char** argv ) {
   xyHitPosHist->Write();
   r2zHitPosHist->Write();
   totalHitTimeHist->Write();
+  scintHitTimeHist->Write();
 
   std::cout << "Finished." << std::endl;
 

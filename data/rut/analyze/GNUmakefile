@@ -1,6 +1,5 @@
 # -*- mode: Makefile -*-
 
-#CC = clang++
 CC = g++
 
 ROOT_INCLUDES = `root-config --cflags`
@@ -11,12 +10,11 @@ LOCAL_INC = -I.
 
 
 CFLAGS = -g -fPIC
-#CFLAGS = -O3
 CFLAGS += $(ROOT_INCLUDES) $(RAT_INCLUDES) $(LOCAL_INC)
 LDFLAGS += `root-config --ldflags` 
 LDLIBS = $(RAT_LIBS) $(ROOT_LIBS) -lstdc++
 
-all: analyzeRUT
+all: analyzeRUT analyzeCaptureTest analyzeCaptureTest
 
 analyzeRUT.o: analyzeRUT.cc
 	$(CC) $(CFLAGS) -c -o $@ $^
@@ -24,5 +22,17 @@ analyzeRUT.o: analyzeRUT.cc
 analyzeRUT: analyzeRUT.o
 	$(CC) $(LDFLAGS) -o $@ analyzeRUT.o $(LDLIBS)
 
+analyzeReflectTest.o: analyzeReflectTest.cc
+	$(CC) $(CFLAGS) -c -o $@ $^
+
+analyzeReflectTest: analyzeReflectTest.o
+	$(CC) $(LDFLAGS) -o $@ analyzeReflectTest.o $(LDLIBS)
+
+analyzeCaptureTest.o: analyzeCaptureTest.cc
+	$(CC) $(CFLAGS) -c -o $@ $^
+
+analyzeCaptureTest: analyzeCaptureTest.o
+	$(CC) $(LDFLAGS) -o $@ analyzeCaptureTest.o $(LDLIBS)
+
 clean: 
-	rm *.o analyzeRUT 
+	rm *.o analyzeRUT analyzeCaptureTest analyzeCaptureTest

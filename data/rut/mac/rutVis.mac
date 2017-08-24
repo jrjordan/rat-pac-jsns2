@@ -1,11 +1,11 @@
 #set the detector parameters                                                                          
 /rat/db/set DETECTOR experiment "rut"
-/rat/db/set DETECTOR geo_file "rut/cylinder.geo"
+/rat/db/set DETECTOR geo_file "rut/cube.geo"
 
 /run/initialize
 
 #initialize the visualizer
-/vis/open OGLIX
+/vis/open OGLSQt
 /vis/scene/create
 /vis/scene/add/volume
 /vis/scene/add/trajectories

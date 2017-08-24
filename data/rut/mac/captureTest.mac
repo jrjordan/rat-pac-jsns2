@@ -1,0 +1,27 @@
+/rat/db/set DETECTOR experiment "rut"
+/rat/db/set DETECTOR geo_file "rut/captureTest.geo"
+
+/run/initialize
+
+/process/inactivate Cerenkov
+/tracking/storeParticleTrajectory neutron
+/tracking/storeParticleTrajectory gamma
+
+# BEGIN EVENT LOOP
+
+/rat/proc count
+/rat/procset update 10
+
+# Use IO.default_output_filename
+/rat/proclast outroot
+/rat/procset file "withGdCaptureTest.root"
+#/rat/procset file "noGdCaptureTest.root"
+
+# END EVENT LOOP
+
+#Thermal neutrons at 0.025 eV
+/generator/add combo gun:point
+/generator/vtx/set neutron 0 0 1 0.000000025 
+/generator/pos/set 0 0 0 
+
+/run/beamOn 10000 #1000

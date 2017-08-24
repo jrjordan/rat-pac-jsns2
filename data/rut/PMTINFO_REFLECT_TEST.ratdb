@@ -1,0 +1,13 @@
+{
+ name:"PMTINFO_REFLECT_TEST",
+ valid_begin: [0,0],
+ valid_end: [0,0],
+
+ x: [100.0d],
+ y: [0.0d],
+ z: [0.0d], 
+ dir_x: [-1.0d],
+ dir_y: [0.0d],
+ dir_z: [0.0d],
+ type: [1], 
+}
